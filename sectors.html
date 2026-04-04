@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sectors — Yukti Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Syne:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A6B;--navy-deep:#122850;--navy-mid:#1E4580;--teal:#0AAEBD;--teal-deep:#0891A0;--teal-pale:#E0F7FA;--green:#6BAF3C;--green-deep:#4E8A28;--green-pale:#EEF7E6;--amber:#C68B3A;--amber-pale:#F5EDD9;--cream:#F7F4EF;--warm-white:#FDFBF8;--ink:#111827;--ink-soft:#374151;--muted:#6B7280;--rule:rgba(27,58,107,0.12);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:300;line-height:1.12;}
+.eyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--teal);}
+.container{max-width:1160px;margin:0 auto;padding:0 48px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,251,248,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--rule);transition:box-shadow .3s;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{height:44px;width:auto;}
+.nav-links{display:flex;list-style:none;gap:28px;align-items:center;}
+.nav-links a{font-family:'Syne',sans-serif;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);}
+.nav-cta{color:#fff!important;background:var(--navy);padding:10px 22px;border-radius:2px;transition:background .2s!important;}
+.nav-scrolled{box-shadow:0 1px 24px rgba(27,58,107,0.1);}
+.page-hero{padding:140px 48px 72px;background:var(--navy-deep);position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--green),transparent);}
+.page-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(107,175,60,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(107,175,60,.05) 1px,transparent 1px);background-size:60px 60px;}
+.breadcrumb{font-family:'Syne',sans-serif;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(10,174,189,.5);margin-bottom:20px;position:relative;z-index:2;}
+.breadcrumb a{color:rgba(10,174,189,.5);text-decoration:none;}.breadcrumb span{margin:0 8px;color:rgba(255,255,255,.2);}
+.page-hero h1{font-size:clamp(42px,6vw,72px);font-weight:200;color:var(--warm-white);position:relative;z-index:2;margin-bottom:16px;}
+.page-hero h1 em{color:var(--green);font-style:italic;}
+.page-hero-lead{font-size:17px;font-weight:300;color:rgba(253,251,248,.55);max-width:560px;line-height:1.75;position:relative;z-index:2;}
+.section{padding:80px 0;}.section-alt{background:var(--warm-white);}
+
+/* SECTOR BLOCKS */
+.sector-block{padding:72px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:5fr 3fr;gap:64px;align-items:start;}
+.sector-block:last-child{border-bottom:1px solid var(--rule);}
+.sb-header{display:flex;align-items:flex-start;gap:24px;margin-bottom:28px;}
+.sb-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.sb-icon-climate{background:var(--green-pale);}
+.sb-icon-inclusion{background:var(--teal-pale);}
+.sb-icon-msme{background:var(--amber-pale);}
+.sb-icon-livelihood{background:#F0EEF8;}
+.sb-num{font-family:'Fraunces',serif;font-size:13px;font-style:italic;color:var(--muted);margin-bottom:6px;}
+.sb-title{font-family:'Fraunces',serif;font-size:32px;font-weight:300;color:var(--navy);margin-bottom:16px;}
+.sb-desc{font-size:15px;line-height:1.9;color:var(--ink-soft);font-weight:300;margin-bottom:24px;}
+.sb-why{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+.sb-items{display:flex;flex-direction:column;gap:0;}
+.sb-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:13px;color:var(--muted);font-weight:300;}
+.sb-item:last-child{border-bottom:none;}
+.sb-arrow{color:var(--teal);flex-shrink:0;}
+.sb-stat-card{background:var(--navy);padding:32px 28px;border-radius:2px;}
+.sb-stat{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(10,174,189,.12);}
+.sb-stat:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.sbs-num{font-family:'Fraunces',serif;font-size:36px;font-weight:200;color:var(--teal);line-height:1;margin-bottom:4px;}
+.sbs-label{font-size:12px;color:rgba(224,247,250,.5);font-weight:300;line-height:1.5;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px;}
+.tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);background:var(--teal-pale);border:1px solid rgba(10,174,189,.25);padding:4px 12px;border-radius:20px;}
+
+footer{background:var(--navy-deep);padding:40px 48px;display:flex;flex-direction:column;align-items:center;gap:20px;border-top:1px solid rgba(10,174,189,.12);}
+.footer-logo img{height:36px;width:auto;opacity:.7;filter:brightness(2);}
+.footer-links{display:flex;list-style:none;gap:24px;flex-wrap:wrap;justify-content:center;}
+.footer-links a{font-family:'Syne',sans-serif;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,251,248,.35);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--teal);}
+.footer-copy{font-size:11px;color:rgba(253,251,248,.2);letter-spacing:.04em;}
+.btn-primary{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--teal);padding:14px 32px;border-radius:2px;text-decoration:none;display:inline-block;transition:background .2s;}
+.btn-primary:hover{background:var(--teal-deep);}
+@media(max-width:768px){.container{padding:0 24px;}.nav-links{display:none;}.sector-block{grid-template-columns:1fr;gap:32px;}.page-hero{padding:120px 24px 60px;}}
+</style>
+</head>
+<body>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"><img src="YuktiLogo.png" alt="Yukti Capital"></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="approach.html">Approach</a></li>
+    <li><a href="sectors.html" class="active">Sectors</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="founder.html">Founder</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Sectors</div>
+    <h1>Where We <em>Deploy</em></h1>
+    <p class="page-hero-lead">Four sector focus areas where capital gaps are largest, development need is greatest, and blended finance can have transformative impact at scale.</p>
+  </div>
+</div>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Focus Sectors</div>
+    <h2 style="color:var(--navy);font-size:clamp(28px,3.5vw,42px);">India's Most <em style="color:var(--green);font-style:italic;">Undercapitalised</em> Frontiers</h2>
+
+    <div class="sector-block">
+      <div>
+        <div class="sb-header">
+          <div class="sb-icon sb-icon-climate">🌿</div>
+          <div><div class="sb-num">Sector 01</div><div class="sb-title">Climate & Green Finance</div></div>
+        </div>
+        <p class="sb-desc">India's climate commitments require an estimated $2.5 trillion in investment by 2030. The financing gap is not due to absence of global capital — it is due to absence of bankable, structured vehicles to receive it. We design those vehicles: from distributed solar for low-income households to climate adaptation finance for smallholder farmers.</p>
+        <div class="sb-why">Our Focus Areas</div>
+        <div class="sb-items">
+          <div class="sb-item"><span class="sb-arrow">→</span>Distributed renewable energy — rooftop solar, decentralised power for underserved communities</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Climate adaptation finance — water security, resilient agriculture, natural infrastructure</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Green affordable housing — energy-efficient construction finance for low-income households</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>WASH (Water, Sanitation, and Hygiene) — blended finance structures for universal access</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>E-mobility and clean transportation — structured credit for two- and three-wheeler EV financing</div>
+        </div>
+        <div class="tags"><span class="tag">Solar</span><span class="tag">Adaptation</span><span class="tag">WASH</span><span class="tag">E-Mobility</span><span class="tag">Green Housing</span></div>
+      </div>
+      <div>
+        <div class="sb-stat-card">
+          <div class="sb-stat"><div class="sbs-num">$2.5T</div><div class="sbs-label">India's estimated climate finance need by 2030</div></div>
+          <div class="sb-stat"><div class="sbs-num">80%</div><div class="sbs-label">Of required capital must come from private sources</div></div>
+          <div class="sb-stat"><div class="sbs-num">4–8×</div><div class="sbs-label">Commercial capital mobilised per rupee of concessional capital in well-structured vehicles</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-block">
+      <div>
+        <div class="sb-header">
+          <div class="sb-icon sb-icon-inclusion">🤝</div>
+          <div><div class="sb-num">Sector 02</div><div class="sb-title">Financial Inclusion</div></div>
+        </div>
+        <p class="sb-desc">Despite significant progress in account penetration, access to affordable credit, insurance, and savings remains out of reach for hundreds of millions of Indians. We structure vehicles that expand access — helping NBFCs and fintechs grow their portfolios with capital that commercial lenders cannot provide alone.</p>
+        <div class="sb-why">Our Focus Areas</div>
+        <div class="sb-items">
+          <div class="sb-item"><span class="sb-arrow">→</span>Microfinance portfolio growth capital — structured credit facilities for MFIs expanding into underserved geographies</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Digital credit for thin-file borrowers — blended capital for fintechs serving the new-to-credit segment</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Women-led enterprise finance — first-loss backed facilities for women entrepreneurs</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Insurance and savings access — structured products expanding reach for LIC and microinsurance players</div>
+        </div>
+        <div class="tags"><span class="tag">Microfinance</span><span class="tag">Digital Credit</span><span class="tag">Women's Finance</span><span class="tag">Microinsurance</span></div>
+      </div>
+      <div>
+        <div class="sb-stat-card">
+          <div class="sb-stat"><div class="sbs-num">190M</div><div class="sbs-label">Adults in India without access to formal credit</div></div>
+          <div class="sb-stat"><div class="sbs-num">₹37L Cr</div><div class="sbs-label">Estimated formal credit gap in underserved segments</div></div>
+          <div class="sb-stat"><div class="sbs-num">62%</div><div class="sbs-label">Of Indian adults have a bank account but remain credit-invisible</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-block">
+      <div>
+        <div class="sb-header">
+          <div class="sb-icon sb-icon-msme">🏭</div>
+          <div><div class="sb-num">Sector 03</div><div class="sb-title">MSME Credit</div></div>
+        </div>
+        <p class="sb-desc">India's 63 million MSMEs generate 30% of GDP and employ over 110 million people — yet the formal credit gap exceeds $530 billion. Traditional lenders cannot serve this segment profitably without risk-sharing support. We design the structures that make MSME lending viable at scale.</p>
+        <div class="sb-why">Our Focus Areas</div>
+        <div class="sb-items">
+          <div class="sb-item"><span class="sb-arrow">→</span>Supply chain finance — anchor-led structures unlocking credit for tier-2 and tier-3 suppliers</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Working capital credit lines — blended facilities for NBFCs serving small manufacturers and traders</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Equipment and asset finance — structured leasing and hire-purchase for capital-light MSMEs</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Women-owned MSME credit — dedicated facilities with gender-lens blended capital</div>
+        </div>
+        <div class="tags"><span class="tag">Supply Chain</span><span class="tag">Working Capital</span><span class="tag">Equipment Finance</span><span class="tag">Gender Lens</span></div>
+      </div>
+      <div>
+        <div class="sb-stat-card">
+          <div class="sb-stat"><div class="sbs-num">63M</div><div class="sbs-label">MSMEs in India — the backbone of the economy</div></div>
+          <div class="sb-stat"><div class="sbs-num">$530B</div><div class="sbs-label">Formal credit gap for MSMEs</div></div>
+          <div class="sb-stat"><div class="sbs-num">110M+</div><div class="sbs-label">People employed by India's MSME sector</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-block">
+      <div>
+        <div class="sb-header">
+          <div class="sb-icon sb-icon-livelihood">🌾</div>
+          <div><div class="sb-num">Sector 04</div><div class="sb-title">Livelihoods & AgriFinance</div></div>
+        </div>
+        <p class="sb-desc">India's 120 million smallholder farming families and millions of artisans and rural workers are among the least-served by formal capital markets. We design blended finance vehicles that connect patient capital with the intermediaries — FPOs, agri-value-chain companies, SHG federations — that can actually reach them.</p>
+        <div class="sb-why">Our Focus Areas</div>
+        <div class="sb-items">
+          <div class="sb-item"><span class="sb-arrow">→</span>Farmer Producer Organisation (FPO) finance — structured credit for aggregation, processing, and market linkage</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Agri-value-chain finance — commodity-backed lending structures for input and output financing</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>SHG and JLG credit — blended facilities for Self-Help Group federations and Joint Liability Groups</div>
+          <div class="sb-item"><span class="sb-arrow">→</span>Artisan and handicraft finance — patient capital for skill-based micro-enterprises in rural India</div>
+        </div>
+        <div class="tags"><span class="tag">FPOs</span><span class="tag">AgriTech</span><span class="tag">SHGs</span><span class="tag">Artisans</span><span class="tag">Value Chain</span></div>
+      </div>
+      <div>
+        <div class="sb-stat-card">
+          <div class="sb-stat"><div class="sbs-num">120M</div><div class="sbs-label">Smallholder farming families in India</div></div>
+          <div class="sb-stat"><div class="sbs-num">&lt;10%</div><div class="sbs-label">Penetration of formal credit in agricultural households</div></div>
+          <div class="sb-stat"><div class="sbs-num">8,000+</div><div class="sbs-label">FPOs in India seeking patient growth capital</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="YuktiLogo.png" alt="Yukti Capital"></div>
+  <ul class="footer-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="approach.html">Approach</a></li>
+    <li><a href="sectors.html">Sectors</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="founder.html">Founder</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Yukti Capital. All rights reserved.</div>
+</footer>
+<script>
+const nav=document.getElementById('main-nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>20);});
+</script>
+</body>
+</html>

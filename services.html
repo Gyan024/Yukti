@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Yukti Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Syne:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A6B;--navy-deep:#122850;--navy-mid:#1E4580;--teal:#0AAEBD;--teal-deep:#0891A0;--teal-pale:#E0F7FA;--green:#6BAF3C;--green-deep:#4E8A28;--amber:#C68B3A;--amber-pale:#F5EDD9;--cream:#F7F4EF;--warm-white:#FDFBF8;--ink:#111827;--ink-soft:#374151;--muted:#6B7280;--rule:rgba(27,58,107,0.12);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;line-height:1.12;}
+.eyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--teal);}
+.container{max-width:1160px;margin:0 auto;padding:0 48px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,251,248,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--rule);transition:box-shadow .3s;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{height:44px;width:auto;}
+.nav-links{display:flex;list-style:none;gap:28px;align-items:center;}
+.nav-links a{font-family:'Syne',sans-serif;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);}
+.nav-cta{color:#fff!important;background:var(--navy);padding:10px 22px;border-radius:2px;transition:background .2s!important;}
+.nav-cta:hover{background:var(--navy-mid)!important;}
+.nav-scrolled{box-shadow:0 1px 24px rgba(27,58,107,0.1);}
+.page-hero{padding:140px 48px 72px;background:var(--navy-deep);position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--green),transparent);}
+.page-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(10,174,189,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(10,174,189,.06) 1px,transparent 1px);background-size:60px 60px;}
+.page-hero-glow{position:absolute;top:-20%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(107,175,60,.12) 0%,transparent 65%);}
+.breadcrumb{font-family:'Syne',sans-serif;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(10,174,189,.5);margin-bottom:20px;position:relative;z-index:2;}
+.breadcrumb a{color:rgba(10,174,189,.5);text-decoration:none;transition:color .2s;}
+.breadcrumb a:hover{color:var(--teal);}
+.breadcrumb span{margin:0 8px;color:rgba(255,255,255,.2);}
+.page-hero h1{font-size:clamp(42px,6vw,72px);font-weight:200;color:var(--warm-white);position:relative;z-index:2;margin-bottom:16px;}
+.page-hero h1 em{color:var(--teal);font-style:italic;}
+.page-hero-lead{font-size:17px;font-weight:300;color:rgba(253,251,248,.55);max-width:560px;line-height:1.75;position:relative;z-index:2;}
+.section{padding:80px 0;}
+.section-alt{background:var(--warm-white);}
+
+/* SERVICES */
+.services-intro{max-width:700px;margin-bottom:64px;}
+.services-intro p{font-size:16px;line-height:1.9;color:var(--ink-soft);font-weight:300;}
+.service-block{display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start;padding:56px 0;border-top:1px solid var(--rule);}
+.service-block:last-child{border-bottom:1px solid var(--rule);}
+.sb-num{font-family:'Fraunces',serif;font-size:56px;font-weight:200;line-height:1;color:var(--teal);opacity:.3;}
+.sb-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.sb-title{font-family:'Fraunces',serif;font-size:28px;font-weight:300;color:var(--navy);margin-bottom:16px;}
+.sb-desc{font-size:15px;line-height:1.85;color:var(--ink-soft);font-weight:300;margin-bottom:24px;}
+.sb-items{display:flex;flex-direction:column;gap:0;}
+.sb-item{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--rule);}
+.sb-item:last-child{border-bottom:none;}
+.sb-arrow{color:var(--teal);font-size:13px;flex-shrink:0;margin-top:2px;}
+.sb-text{font-size:13px;line-height:1.65;color:var(--ink-soft);font-weight:300;}
+
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;}
+.why-card{padding:32px 28px;background:var(--cream);}
+.why-card:nth-child(1){background:var(--navy);}
+.why-card:nth-child(2){background:var(--teal-deep);}
+.why-card:nth-child(3){background:var(--green-deep);}
+.why-card:nth-child(4){background:var(--navy-mid);}
+.wc-num{font-family:'Fraunces',serif;font-size:36px;font-weight:200;color:rgba(255,255,255,.2);line-height:1;margin-bottom:14px;}
+.wc-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:10px;}
+.wc-desc{font-size:12px;line-height:1.7;color:rgba(255,255,255,.5);font-weight:300;}
+
+footer{background:var(--navy-deep);padding:40px 48px;display:flex;flex-direction:column;align-items:center;gap:20px;border-top:1px solid rgba(10,174,189,.12);}
+.footer-logo img{height:36px;width:auto;opacity:.7;filter:brightness(2);}
+.footer-links{display:flex;list-style:none;gap:24px;flex-wrap:wrap;justify-content:center;}
+.footer-links a{font-family:'Syne',sans-serif;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,251,248,.35);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--teal);}
+.footer-copy{font-size:11px;color:rgba(253,251,248,.2);letter-spacing:.04em;}
+.btn-primary{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--teal);padding:14px 32px;border-radius:2px;text-decoration:none;display:inline-block;transition:background .2s;}
+.btn-primary:hover{background:var(--teal-deep);}
+@media(max-width:768px){.container{padding:0 24px;}.nav-links{display:none;}.service-block{grid-template-columns:1fr;gap:24px;}.why-grid{grid-template-columns:1fr 1fr;}.page-hero{padding:120px 24px 60px;}}
+</style>
+</head>
+<body>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"><img src="YuktiLogo.png" alt="Yukti Capital"></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="approach.html">Approach</a></li>
+    <li><a href="sectors.html">Sectors</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="founder.html">Founder</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-glow"></div>
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Services</div>
+    <h1>What We <em>Do</em></h1>
+    <p class="page-hero-lead">End-to-end advisory and transaction execution — from structuring to capital close — for blended finance deals in India's high-impact sectors.</p>
+  </div>
+</div>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="services-intro">
+      <div class="eyebrow" style="margin-bottom:20px;">Our Services</div>
+      <p>We offer a focused suite of services built around one core insight: that the gap between development capital and commercial capital is not ideological — it is structural. Our work creates the architecture to bridge it.</p>
+    </div>
+
+    <div class="service-block">
+      <div><div class="sb-num">01</div></div>
+      <div>
+        <div class="sb-label">Core Service</div>
+        <div class="sb-title">Blended Finance Structuring</div>
+        <p class="sb-desc">We design financial structures that de-risk impact investments enough to attract commercial capital — without compromising the development mandate of anchor investors.</p>
+        <div class="sb-items">
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">First-loss tranche design and sizing — calibrated to mobilise maximum commercial capital per rupee of concessional capital deployed</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Credit guarantee architecture — designing guarantee mechanisms that are credible to commercial lenders and fiscally sustainable for guarantee providers</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Layered fund structures — senior, mezzanine, and junior tranche design for pooled vehicles with multiple investor types</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Risk-sharing agreement design between DFIs, foundations, and commercial co-investors</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div><div class="sb-num">02</div></div>
+      <div>
+        <div class="sb-label">Transaction Execution</div>
+        <div class="sb-title">End-to-End Deal Management</div>
+        <p class="sb-desc">We don't stop at the term sheet. We manage transactions from structure design through legal documentation, investor onboarding, regulatory compliance, and capital close.</p>
+        <div class="sb-items">
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Term sheet drafting and negotiation between diverse investor types with conflicting mandates</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Legal structuring coordination — working with transaction counsel on fund documentation, security creation, and regulatory compliance</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Investor onboarding and due diligence support for all parties in a transaction</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Capital close project management — milestone tracking, condition precedent management, and disbursement coordination</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div><div class="sb-num">03</div></div>
+      <div>
+        <div class="sb-label">Investor Advisory</div>
+        <div class="sb-title">Capital Deployment Strategy</div>
+        <p class="sb-desc">For impact investors and DFIs entering or expanding in India, we provide strategic advice on deployment mandates, sector prioritisation, and portfolio structuring.</p>
+        <div class="sb-items">
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">India market entry strategy for international DFIs, foundations, and impact funds</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Investment mandate design — defining sector focus, instrument mix, risk appetite, and return expectations</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Pipeline identification and preliminary due diligence for deployment partners and co-investment opportunities</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Portfolio construction and blended finance vehicle design for foundations and family offices</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div><div class="sb-num">04</div></div>
+      <div>
+        <div class="sb-label">Impact Architecture</div>
+        <div class="sb-title">Impact Measurement & Reporting</div>
+        <p class="sb-desc">We build impact measurement frameworks that are rigorous, proportionate, and genuinely useful — not compliance theatre that satisfies reporting requirements but reveals nothing.</p>
+        <div class="sb-items">
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Theory of change development aligned to SDGs, IRIS+, and investor-specific frameworks</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">KPI design for deployment partners — measurable, attributable, and cost-effective to collect</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Impact reporting frameworks for fund managers and transaction SPVs</span></div>
+          <div class="sb-item"><span class="sb-arrow">→</span><span class="sb-text">Portfolio-level impact aggregation and investor-facing reporting templates</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY YUKTI -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Why Yukti Capital</div>
+    <h2 style="color:var(--navy);font-size:clamp(28px,3.5vw,42px);">What Makes Us <em style="color:var(--teal);font-style:italic;">Different</em></h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="wc-num">i.</div>
+        <div class="wc-title">Blended Finance Specialists</div>
+        <p class="wc-desc">We don't do general financial advisory. Every mandate we take is in blended finance or structured impact capital — this focus makes us sharper than generalists.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-num">ii.</div>
+        <div class="wc-title">Execution, Not Just Advisory</div>
+        <p class="wc-desc">We stay through capital close. We manage transactions, not just recommendations — with accountability for outcomes, not just outputs.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-num">iii.</div>
+        <div class="wc-title">Investor + Operator Alignment</div>
+        <p class="wc-desc">We sit between capital providers and deployment partners — ensuring both sides are genuinely aligned before capital is committed.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-num">iv.</div>
+        <div class="wc-title">Scale by Design</div>
+        <p class="wc-desc">Every transaction we structure is built to be replicated. We document and share our models to shift market practice — not just move capital once.</p>
+      </div>
+    </div>
+    <div style="margin-top:48px;text-align:center;">
+      <a href="approach.html" class="btn-primary">See Our Approach →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="YuktiLogo.png" alt="Yukti Capital"></div>
+  <ul class="footer-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="approach.html">Approach</a></li>
+    <li><a href="sectors.html">Sectors</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="founder.html">Founder</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Yukti Capital. All rights reserved.</div>
+</footer>
+<script>
+const nav=document.getElementById('main-nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>20);});
+</script>
+</body>
+</html>

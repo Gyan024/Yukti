@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — Yukti Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Syne:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A6B;--navy-deep:#122850;--navy-mid:#1E4580;--teal:#0AAEBD;--teal-deep:#0891A0;--teal-pale:#E0F7FA;--green:#6BAF3C;--green-deep:#4E8A28;--green-pale:#EEF7E6;--amber:#C68B3A;--amber-pale:#F5EDD9;--cream:#F7F4EF;--warm-white:#FDFBF8;--ink:#111827;--ink-soft:#374151;--muted:#6B7280;--rule:rgba(27,58,107,0.12);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:300;line-height:1.12;}
+.eyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--teal);}
+.container{max-width:1160px;margin:0 auto;padding:0 48px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,251,248,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--rule);transition:box-shadow .3s;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{height:44px;width:auto;}
+.nav-links{display:flex;list-style:none;gap:28px;align-items:center;}
+.nav-links a{font-family:'Syne',sans-serif;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);}
+.nav-cta{color:#fff!important;background:var(--navy);padding:10px 22px;border-radius:2px;transition:background .2s!important;}
+.nav-scrolled{box-shadow:0 1px 24px rgba(27,58,107,0.1);}
+.page-hero{padding:140px 48px 72px;background:var(--navy-deep);position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--green),transparent);}
+.page-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(10,174,189,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(10,174,189,.06) 1px,transparent 1px);background-size:60px 60px;}
+.breadcrumb{font-family:'Syne',sans-serif;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(10,174,189,.5);margin-bottom:20px;position:relative;z-index:2;}
+.breadcrumb a{color:rgba(10,174,189,.5);text-decoration:none;}.breadcrumb span{margin:0 8px;color:rgba(255,255,255,.2);}
+.page-hero h1{font-size:clamp(42px,6vw,72px);font-weight:200;color:var(--warm-white);position:relative;z-index:2;margin-bottom:16px;}
+.page-hero h1 em{color:var(--teal);font-style:italic;}
+.page-hero-lead{font-size:17px;font-weight:300;color:rgba(253,251,248,.55);max-width:560px;line-height:1.75;position:relative;z-index:2;}
+.section{padding:80px 0;}.section-alt{background:var(--warm-white);}
+
+/* INSIGHTS */
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+.insight-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:2px;padding:36px 32px;transition:all .3s;text-decoration:none;display:block;color:inherit;}
+.insight-card:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 8px 32px rgba(27,58,107,0.1);}
+.ic-tag{font-family:'Syne',sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;display:inline-block;padding:4px 12px;border-radius:20px;}
+.ic-tag-bf{color:var(--navy);background:var(--teal-pale);}
+.ic-tag-str{color:var(--green-deep);background:var(--green-pale);}
+.ic-tag-risk{color:var(--amber);background:var(--amber-pale);}
+.ic-title{font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:var(--navy);line-height:1.35;margin-bottom:12px;}
+.ic-desc{font-size:13px;line-height:1.75;color:var(--muted);font-weight:300;margin-bottom:24px;}
+.ic-footer{display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--rule);}
+.ic-author{font-size:11px;color:var(--muted);font-weight:300;}
+.ic-link{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:6px;transition:gap .2s;}
+.insight-card:hover .ic-link{gap:10px;}
+
+.featured-insight{background:var(--navy);padding:56px 64px;border-radius:2px;margin-bottom:24px;display:grid;grid-template-columns:2fr 1fr;gap:64px;align-items:center;}
+.fi-eyebrow{font-family:'Syne',sans-serif;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.fi-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--teal);}
+.fi-title{font-family:'Fraunces',serif;font-size:clamp(22px,3vw,34px);font-weight:200;color:var(--warm-white);line-height:1.25;margin-bottom:16px;}
+.fi-desc{font-size:14px;line-height:1.85;color:rgba(253,251,248,.55);font-weight:300;margin-bottom:28px;}
+.fi-link{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--teal);padding:12px 28px;border-radius:2px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s;}
+.fi-link:hover{background:var(--teal-deep);}
+.fi-meta{display:flex;flex-direction:column;gap:20px;}
+.fi-stat{border-bottom:1px solid rgba(10,174,189,.15);padding-bottom:20px;}
+.fi-stat:last-child{border-bottom:none;padding-bottom:0;}
+.fi-stat-num{font-family:'Fraunces',serif;font-size:32px;font-weight:200;color:var(--teal);line-height:1;margin-bottom:6px;}
+.fi-stat-label{font-size:12px;color:rgba(253,251,248,.4);font-weight:300;line-height:1.5;}
+
+footer{background:var(--navy-deep);padding:40px 48px;display:flex;flex-direction:column;align-items:center;gap:20px;border-top:1px solid rgba(10,174,189,.12);}
+.footer-logo img{height:36px;width:auto;opacity:.7;filter:brightness(2);}
+.footer-links{display:flex;list-style:none;gap:24px;flex-wrap:wrap;justify-content:center;}
+.footer-links a{font-family:'Syne',sans-serif;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,251,248,.35);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--teal);}
+.footer-copy{font-size:11px;color:rgba(253,251,248,.2);letter-spacing:.04em;}
+@media(max-width:768px){.container{padding:0 24px;}.nav-links{display:none;}.insights-grid{grid-template-columns:1fr;}.featured-insight{grid-template-columns:1fr;padding:36px 28px;}.page-hero{padding:120px 24px 60px;}}
+</style>
+</head>
+<body>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"><img src="YuktiLogo.png" alt="Yukti Capital"></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="approach.html">Approach</a></li>
+    <li><a href="sectors.html">Sectors</a></li>
+    <li><a href="insights.html" class="active">Insights</a></li>
+    <li><a href="founder.html">Founder</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Insights</div>
+    <h1>Thought <em>Leadership</em></h1>
+    <p class="page-hero-lead">Perspectives from our work at the frontier of blended finance and impact investing in India. Practical, field-tested, and designed to shift practice.</p>
+  </div>
+</div>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Featured</div>
+    <div class="featured-insight">
+      <div>
+        <div class="fi-eyebrow">Blended Finance Architecture</div>
+        <div class="fi-title">Why India Needs a Blended Finance Architecture — Not Just Deals</div>
+        <p class="fi-desc">Individual transactions are necessary but insufficient. Building India's blended finance market requires replicable structures, standardised documentation, shared risk frameworks, and a community of practice that learns across transactions. This is the piece that is missing — and the piece Yukti Capital is committed to building.</p>
+        <a href="#" class="fi-link">Read the Full Paper →</a>
+      </div>
+      <div class="fi-meta">
+        <div class="fi-stat"><div class="fi-stat-num">$2.5T</div><div class="fi-stat-label">India's unmet climate finance need — the core case for blended architecture</div></div>
+        <div class="fi-stat"><div class="fi-stat-num">1 in 12</div><div class="fi-stat-label">Blended finance deals globally are replicated from a prior structure</div></div>
+        <div class="fi-stat"><div class="fi-stat-num">8×</div><div class="fi-stat-label">Commercial capital mobilisation ratio in best-in-class blended vehicles</div></div>
+      </div>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom:16px;">All Insights</div>
+    <div class="insights-grid">
+      <a href="#" class="insight-card">
+        <div class="ic-tag ic-tag-str">Structuring for Scale</div>
+        <div class="ic-title">First-Loss Capital: The Most Misunderstood Tool in Impact Finance</div>
+        <p class="ic-desc">First-loss tranches are often dismissed as philanthropy dressed up as finance. We argue the opposite: when correctly sized and structured, they are the most capital-efficient tool available to development financiers — unlocking 4–8x in commercial capital per rupee deployed.</p>
+        <div class="ic-footer"><span class="ic-author">Yukti Capital · 2026</span><span class="ic-link">Read →</span></div>
+      </a>
+      <a href="#" class="insight-card">
+        <div class="ic-tag ic-tag-risk">Risk-Sharing Mechanisms</div>
+        <div class="ic-title">Guarantee Mechanisms in India: What Works and What Doesn't</div>
+        <p class="ic-desc">India has seen dozens of credit guarantee schemes in the last decade. Most have underperformed. We examine the design features that distinguish effective guarantee structures — and the common pitfalls that reduce impact and increase fiscal risk for guarantee providers.</p>
+        <div class="ic-footer"><span class="ic-author">Yukti Capital · 2026</span><span class="ic-link">Read →</span></div>
+      </a>
+      <a href="#" class="insight-card">
+        <div class="ic-tag ic-tag-bf">MSME Finance</div>
+        <div class="ic-title">The $530 Billion MSME Credit Gap: Why Blended Finance is the Answer</div>
+        <p class="ic-desc">Traditional commercial lending cannot profitably serve India's 63 million MSMEs without structural support. We map the capital gap, diagnose the underwriting failure, and propose a blended finance framework for sustainable MSME credit expansion.</p>
+        <div class="ic-footer"><span class="ic-author">Yukti Capital · 2025</span><span class="ic-link">Read →</span></div>
+      </a>
+      <a href="#" class="insight-card">
+        <div class="ic-tag ic-tag-str">Agricultural Finance</div>
+        <div class="ic-title">FPO Finance: Unlocking Capital for India's Farmer Producer Organisations</div>
+        <p class="ic-desc">India has over 8,000 Farmer Producer Organisations but most remain capital-starved. We examine the structural reasons — and propose a blended finance vehicle designed specifically for FPO growth capital at scale.</p>
+        <div class="ic-footer"><span class="ic-author">Yukti Capital · 2025</span><span class="ic-link">Read →</span></div>
+      </a>
+      <a href="#" class="insight-card">
+        <div class="ic-tag ic-tag-risk">DFI Strategy</div>
+        <div class="ic-title">DFIs and Blended Finance: From Anchor Investor to Market Builder</div>
+        <p class="ic-desc">Development Finance Institutions have historically deployed capital deal-by-deal. We argue for a market-building role — using DFI capital to establish standardised structures, shared documentation, and replicable models that shift the frontier for commercial capital.</p>
+        <div class="ic-footer"><span class="ic-author">Yukti Capital · 2025</span><span class="ic-link">Read →</span></div>
+      </a>
+      <a href="#" class="insight-card">
+        <div class="ic-tag ic-tag-bf">Climate Finance</div>
+        <div class="ic-title">Financing Climate Adaptation in India: The Missing Piece</div>
+        <p class="ic-desc">Climate mitigation — renewable energy, EVs — has attracted significant capital. Climate adaptation — food security, water resilience, coastal protection — remains largely unfunded. We examine why, and what blended structures could unlock adaptation finance at scale.</p>
+        <div class="ic-footer"><span class="ic-author">Yukti Capital · 2024</span><span class="ic-link">Read →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="YuktiLogo.png" alt="Yukti Capital"></div>
+  <ul class="footer-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="approach.html">Approach</a></li>
+    <li><a href="sectors.html">Sectors</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="founder.html">Founder</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Yukti Capital. All rights reserved.</div>
+</footer>
+<script>
+const nav=document.getElementById('main-nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>20);});
+</script>
+</body>
+</html>
